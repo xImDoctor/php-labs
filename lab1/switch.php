@@ -43,7 +43,7 @@ $day = 3;
     ЗАДАНИЕ 3
 	- Выполните задание 2 используя управляющую конструкцию match. Результат сохраните в файле match.php.
 	*/ 
-    $matchResult = include("match.php");
+    $matchResult = include "match.php";
     echo "<br><br>Результат из match.php: {$matchResult}"
 	?> 
 </body>
