@@ -29,11 +29,11 @@ $age = 20;
 	- Изолируйте код PHP от HTML-разметки.
 	*/
 
-    echo "Меня зовут: $name\n
-            Мне $age лет";
+    echo "Меня зовут: $name<br>
+            Мне $age лет<br>";
     echo "Типы переменных:\n
         name - ", var_dump($name),
-        "age - ", var_dump($age);
+        "<br>age - ", var_dump($age);
 	?> 
 </body>
 </html>
