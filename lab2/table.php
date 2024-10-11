@@ -25,6 +25,7 @@ $rows = 5;
 		td {
 			padding: 10px;
 			border: 1px solid black;
+			text-align: center;
 		}
 
 		th {
