@@ -4,8 +4,8 @@
    - Создайте две целочисленные переменные $cols и $rows
    - Присвойте созданным переменным произвольные значения в диапазоне от 1 до 10
    */
-$cols = 5;
-$rows = 5;
+$cols = 10;
+$rows = 10;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -47,17 +47,17 @@ $rows = 5;
 		   - Рекомендуется использовать цикл for	
 		   */
 
-		echo '<tr><th></th>';
-		for ($i = 1; $i <= $cols; ++$i)
+		echo '<tr>';
+		for ($i = 1; $i <= $cols; $i++)
 			echo '<th>', $i, '</th>';
 		echo '</tr>';
 
-		for ($i = 1; $i <= $rows; $i++) {
+		for ($i = 2; $i <= $rows; $i++) {
 
 			echo '<tr>';
 			echo '<th>', $i, '</th>';
 
-			for ($j = 1; $j <= $cols; $j++)
+			for ($j = 2; $j <= $cols; $j++)
 				echo '<td>', $i * $j, '</td>';
 
 			echo '</tr>';
