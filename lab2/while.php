@@ -20,6 +20,12 @@
 	L
 	O
 	*/
+    $var = 'HELLO';
+    $i = 0;
+    while ($i < strlen($var)) {
+        echo $var[$i] . '<br>';
+        $i++;
+    }
 	?> 
 </body>
 </html>
