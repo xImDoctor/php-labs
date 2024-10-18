@@ -7,6 +7,21 @@ $name = 'иван';
 $email = 'ivan@petrov.ru';
 $code = '<?=$login?>';
 
+/**
+ * Проверка сложности пароля.
+ * Пароль должен содержать минимум:
+ * - одну заглавную букву,
+ * - одну строчную букву,
+ * - одну цифру,
+ * - длина пароля не менее 8 символов.
+ * 
+ * @param string $password - пароль для проверки,
+ * @return bool возвращает true, если пароль соответствует требованиям.
+ */
+function checkPasswordDifficulty(string $password): bool
+{
+    return preg_match('/[A-Z]/', $password) && preg_match('/[a-z]/', $password) && preg_match('/\d/', $password) && strlen($password) >= 8;
+}
 
 ?>
 
@@ -21,6 +36,7 @@ $code = '<?=$login?>';
 <body>
 
     <?php
+    declare(strict_types=1);
     /*
        ЗАДАНИЕ 2
        - Используя строковые функции, удалите пробельные символы в начале и конце переменной $login, а также сделайте все символы строчными (малыми)
@@ -30,11 +46,18 @@ $code = '<?=$login?>';
        - Используя строковые функции выведите значение переменной $code в браузер в том же виде как она задана в коде
        */
 
-       $login = strtolower(trim($login));
-
-       $name = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
-       $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email корректный' : 'email некорректный';
+    $login = strtolower(trim($login));
+    $passIsValid = checkPasswordDifficulty($password) ? 'Пароль сложный' : 'Пароль простой';
+    $name = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+    $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email корректный' : 'email некорректный';
     ?>
+    
+    <!-- Вывод значений на экран -->
+    <p>Логин после обработки: <?= $login ?></p>
+    <p>Проверка пароля: <?= $passIsValid ?></p>
+    <p>Имя после обработки: <?= $name ?></p>
+    <p>Проверка email: <?= $emailValid ?></p>
+    <p>Переменная code: <?= htmlspecialchars($code) ?></p>
 </body>
 
 </html>
