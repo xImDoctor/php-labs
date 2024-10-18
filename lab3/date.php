@@ -6,10 +6,10 @@ declare(strict_types=1);
    - Присвойте переменной $birthday значение метки времени Вашего дня рождения
    - Создайте переменную $hour
    - С помощью функции getdate() присвойте переменной $hour текущий час
-   */
+*/
 
 $now = time();
-$birthday = mktime(0, 0, 0, 10, 9, 2004);
+$birthday = mktime(0, 0, 0, 10, 9, (int) date('Y'));
 $hour = getdate()['hours'];
 
 ?>
@@ -44,7 +44,7 @@ $hour = getdate()['hours'];
          например, "Сегодня 1 сентября 2018 года, суббота 09:30:00" 
        - На отдельной строке выведите фразу "До моего дня рождения осталось "
        - Выведите количество дней, часов, минут и секунд оставшееся до Вашего дня рождения
-       */
+    */
 
     if ($hour >= 0 && $hour < 6)
         $welcome = 'Доброй ночи';
@@ -57,10 +57,8 @@ $hour = getdate()['hours'];
     else
         $welcome = 'Доброй ночи';
 
-
     setlocale(LC_TIME, 'ru_RU.UTF-8');
 
-    // Устанавливаем локаль для IntlDateFormatter
     $fmt = datefmt_create(
         'ru_RU',
         IntlDateFormatter::FULL,
@@ -71,7 +69,13 @@ $hour = getdate()['hours'];
 
     $formattedDate = datefmt_format($fmt, $now);
 
-    $timeBeforeBirthday = $birthday - $now;
+    $timeToBirthday = $birthday - $now;
+
+    //если др уже прошёл, устанавливаем на следующий год
+    if ($timeToBirthday < 0) {
+        $birthday = mktime(0, 0, 0, 10, 9, (int) date('Y') + 1);
+        $timeToBirthday = $birthday - $now;
+    }
     $days = floor($timeToBirthday / (60 * 60 * 24));
     $hours = floor(($timeToBirthday % (60 * 60 * 24)) / (60 * 60));
     $minutes = floor(($timeToBirthday % (60 * 60)) / 60);
