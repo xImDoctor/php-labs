@@ -1,13 +1,15 @@
 <?php
-/*
-   ЗАДАНИЕ 1
-   - Создайте строковую переменную $login и присвойте ей значение ' User '
-   - Создайте строковую переменную $password и присвойте ей значение 'megaP@ssw0rd'
-   - Создайте строковую переменную $name и присвойте ей значение 'иван'
-   - Создайте строковую переменную $email и присвойте ей значение 'ivan@petrov.ru'
-   - Создайте строковую переменную $code и присвойте ей значение '<?=$login?>'
-   */
+declare(strict_types=1);
+
+$login = ' User ';
+$password = 'megaP@ssw0rd';
+$name = 'иван';
+$email = 'ivan@petrov.ru';
+$code = '<?=$login?>';
+
+
 ?>
+
 <!doctype html>
 <html>
 
@@ -27,6 +29,11 @@
        - Используя функцию фильтрации переменных проверьте корректность значения $email
        - Используя строковые функции выведите значение переменной $code в браузер в том же виде как она задана в коде
        */
+
+       $login = strtolower(trim($login));
+
+       $name = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+       $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email корректный' : 'email некорректный';
     ?>
 </body>
 
