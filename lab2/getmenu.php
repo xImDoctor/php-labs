@@ -15,6 +15,12 @@
    - Добавьте описание функции getMenu() с помощью стандарта PHPDoc https://ru.wikipedia.org/wiki/PHPDoc
    */
 
+/**
+ * Функция для создания списка (меню).
+ * 
+ * @param array $menu - массив,содержащий элементы меню (ассоциативные массивы с парами название - ссылка),
+ * @param bool $vertical определяет, будет ли меню вертикальным (true) или горизонтальным (false)
+ */
 function getMenu(array $menu, bool $vertical = true): void
 {
     $menuClasses = $vertical ?  'menu' : 'menu vertical';
@@ -26,8 +32,6 @@ function getMenu(array $menu, bool $vertical = true): void
     echo '</ul>';
 
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
