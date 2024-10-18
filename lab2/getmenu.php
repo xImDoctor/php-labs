@@ -15,20 +15,16 @@
    - Добавьте описание функции getMenu() с помощью стандарта PHPDoc https://ru.wikipedia.org/wiki/PHPDoc
    */
 
-function getMenu(array $menu, bool $vertical = true)
+function getMenu(array $menu, bool $vertical = true): void
 {
+    
+
+
     foreach ($menu as $item)
         echo "<li><a href={$item['href']}>{$item['link']}</a></li>";
 }
 
 
-$leftMenu = [
-    ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
-    ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php'],
-];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -63,6 +59,18 @@ $leftMenu = [
        ЗАДАНИЕ 4
        - Отрисуйте горизонтальное меню вызывая функцию getMenu() со вторым параметром равным false
        */
+
+
+    $leftMenu = [
+        ['link' => 'Домой', 'href' => 'index.php'],
+        ['link' => 'О нас', 'href' => 'about.php'],
+        ['link' => 'Контакты', 'href' => 'contact.php'],
+        ['link' => 'Таблица умножения', 'href' => 'table.php'],
+        ['link' => 'Калькулятор', 'href' => 'calc.php'],
+    ];
+
+    getMenu($leftMenu);
+    getMenu($leftMenu, false);
     ?>
 </body>
 
