@@ -61,7 +61,7 @@ $hour = getdate()['hours'];
     setlocale(LC_TIME, 'ru_RU.UTF-8');
 
     // Устанавливаем локаль для IntlDateFormatter
-    $formatter = new IntlDateFormatter(
+    $fmt = datefmt_create(
         'ru_RU',
         IntlDateFormatter::FULL,
         IntlDateFormatter::FULL,
@@ -69,7 +69,7 @@ $hour = getdate()['hours'];
         IntlDateFormatter::GREGORIAN
     );
 
-    $formattedDate = $formatter->format($now);
+    $formattedDate = datefmt_format($fmt, $now);
 
     $timeBeforeBirthday = $birthday - $now;
     $days = floor($timeToBirthday / (60 * 60 * 24));
