@@ -17,7 +17,7 @@
 
 function getMenu(array $menu, bool $vertical = true): void
 {
-    $menuClasses = $vertical ? 'menu vertical' : 'menu';
+    $menuClasses = $vertical ?  'menu' : 'menu vertical';
 
     echo "<ul class='$menuClasses'>";
     foreach ($menu as $item)
@@ -54,15 +54,6 @@ function getMenu(array $menu, bool $vertical = true): void
 <body>
     <h1>Меню</h1>
     <?php
-    /*
-       ЗАДАНИЕ 3
-       - Отрисуйте вертикальное меню вызывая функцию getMenu() с одним параметром
-       */
-    /*
-       ЗАДАНИЕ 4
-       - Отрисуйте горизонтальное меню вызывая функцию getMenu() со вторым параметром равным false
-       */
-
 
     $leftMenu = [
         ['link' => 'Домой', 'href' => 'index.php'],
@@ -74,7 +65,7 @@ function getMenu(array $menu, bool $vertical = true): void
 
     getMenu($leftMenu);
 
-    echo '<h2>Горизонтальное меню (vertical false)</h2>';
+    echo '<h2>Горизонтальное меню (vertical=false)</h2>';
     getMenu($leftMenu, false);
     ?>
 </body>
