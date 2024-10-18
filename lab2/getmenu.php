@@ -17,11 +17,14 @@
 
 function getMenu(array $menu, bool $vertical = true): void
 {
-    
+    $menuClasses = $vertical ? 'menu vertical' : 'menu';
 
-
+    echo "<ul class='$menuClasses'>";
     foreach ($menu as $item)
         echo "<li><a href={$item['href']}>{$item['link']}</a></li>";
+
+    echo '</ul>';
+
 }
 
 
@@ -70,6 +73,8 @@ function getMenu(array $menu, bool $vertical = true): void
     ];
 
     getMenu($leftMenu);
+
+    echo '<h2>Горизонтальное меню (vertical false)</h2>';
     getMenu($leftMenu, false);
     ?>
 </body>
