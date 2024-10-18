@@ -11,6 +11,25 @@
    - Измените код таким образом, чтобы таблица отрисовывалась в зависимости от входящих параметров $cols, $rows и $color
    - Добавьте в объявлние функции описание типов аргументов
    */
+
+function getTable($cols, $rows, $color): void
+{
+    echo '<tr>';
+    for ($i = 1; $i <= $cols; $i++)
+        echo '<th>', $i, '</th>';
+    echo '</tr>';
+
+    for ($i = 2; $i <= $rows; $i++) {
+
+        echo '<tr>';
+        echo '<th>', $i, '</th>';
+
+        for ($j = 2; $j <= $cols; $j++)
+            echo '<td>', $i * $j, '</td>';
+
+        echo '</tr>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
