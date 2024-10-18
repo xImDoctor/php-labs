@@ -12,23 +12,32 @@
    - Добавьте в объявлние функции описание типов аргументов
    */
 
-function getTable($cols, $rows, $color): void
+function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
 {
+    //подсчёт количества вызовов
+    static $count = 0;
+    ++$count;
+
+    echo '<table>';
+
     echo '<tr>';
+    echo '<th style="background-color:' . $color . ';">*</th>';
     for ($i = 1; $i <= $cols; $i++)
-        echo '<th>', $i, '</th>';
+        echo '<th style="background-color:' . $color . ';">', $i, '</th>';
     echo '</tr>';
 
-    for ($i = 2; $i <= $rows; $i++) {
-
+    for ($i = 1; $i <= $rows; $i++) {
         echo '<tr>';
-        echo '<th>', $i, '</th>';
 
-        for ($j = 2; $j <= $cols; $j++)
+        echo '<th style="background-color:' . $color . ';">', $i, '</th>';
+        for ($j = 1; $j <= $cols; $j++)
             echo '<td>', $i * $j, '</td>';
-
         echo '</tr>';
     }
+
+    echo '</table>';
+
+    return $count;
 }
 ?>
 <!DOCTYPE html>
@@ -78,6 +87,18 @@ function getTable($cols, $rows, $color): void
        - Отрисуйте таблицу умножения вызывая функцию getTable() с двумя параметрами
        - Используя статическую переменную $count выведите общее число вызовов функции getTable()
        */
+
+    $count = getTable();
+    echo "Функция вызвана $count раз(а).<br><br>";
+
+    $count = getTable(5);
+    echo "Функция вызвана $count раз(а).<br><br>";
+
+    $count = getTable(5, 5);
+    echo "Функция вызвана $count раз(а).<br><br>";
+
+    $count = getTable(5, 5, 'lightblue');
+    echo "Функция вызвана $count раз(а).<br><br>";
     ?>
 </body>
 
