@@ -56,7 +56,7 @@ $leftMenu = [
            */
 
         foreach ($leftMenu as $menu) {
-            echo "<li><a href={$menu['href']}>{$item['link']}</a></li>";
+            echo "<li><a href={$menu['href']}>{$menu['link']}</a></li>";
         }
         ?>
     </nav>
