@@ -54,6 +54,10 @@ $leftMenu = [
                  <li><a href='calc.php'>Калькулятор</a></li>
                </ul>
            */
+
+        foreach ($leftMenu as $menu) {
+            echo "<li><a href={$menu['href']}>{$item['link']}</a></li>";
+        }
         ?>
     </nav>
 </body>
