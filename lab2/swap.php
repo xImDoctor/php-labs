@@ -11,5 +11,7 @@ function swap(&$a, &$b): void {
 $a = 5;
 $b = 8;
 swap($a, $b);
-echo (5 === $b);
-echo (8 === $a);
+
+echo '5 === $b: ', (5 === $b) ? 'true' : 'false';
+echo "<br>";
+echo '8 === $a: ', (8 === $a) ? 'true' : 'false';
