@@ -58,9 +58,9 @@ function getMenu(array $menu, bool $vertical = true): void
 
 
 /**
- * Устанавливает значение переменной приветствия
+ * Устанавливает значение переданной переменной приветствия
  * 
- * @param string $welcome - переменная, хранящая строку приветствия
+ * @param string $welcome - переменная, хранящая строку приветствия, передаётся по ссылке.
  */
 function setWelcome(string &$welcome): void
 {
