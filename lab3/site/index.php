@@ -60,8 +60,9 @@ include 'inc/data.inc.php';
   <section>
     <!-- Заголовок -->
     <h1>Добро пожаловать на наш сайт!</h1>
+    <!-- Область основного контента -->
     <?php include 'inc/index.inc.php'; ?>
-
+    <!-- Область основного контента -->
   </section>
   <nav>
     <!-- Навигация -->
@@ -69,7 +70,9 @@ include 'inc/data.inc.php';
     <!-- Навигация -->
   </nav>
   <footer>
+    <!-- Нижняя часть страницы -->
     <?php include 'inc/footer.inc.php'; ?>
+    <!-- Нижняя часть страницы -->
   </footer>
 </body>
 
