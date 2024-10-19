@@ -10,18 +10,18 @@ $color = ($color) ? $color : '#ffff00';
 ?>
 
 <!-- Область основного контента -->
-<form action='<?=$_SERVER['REQUEST_URI']?>' method="POST">
+<form action='<?= $_SERVER['REQUEST_URI'] ?>' method="POST">
   <label>Количество колонок: </label>
   <br>
-  <input name='cols' type='text' value=''>
+  <input name='cols' type='text' value='<?= $cols ?>'>
   <br>
   <label>Количество строк: </label>
   <br>
-  <input name='rows' type='text' value=''>
+  <input name='rows' type='text' value='<?= $rows ?>'>
   <br>
   <label>Цвет: </label>
   <br>
-  <input name='color' type='color' value='#ff0000' list="listColors">
+  <input name='color' type='color' value='<?= $color ?>' list="listColors">
   <datalist id="listColors">
     <option>#ff0000</option>/>
     <option>#00ff00</option>
