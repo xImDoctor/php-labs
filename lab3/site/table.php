@@ -48,10 +48,7 @@
     <table border='1' width='200'>
       <?php
       include 'inc/lib.inc.php';
-
-      $cols = $_GET['cols'] ?? 5;
-      $rows = $_GET['rows'] ?? 5;
-      $color = $_GET['color'] ?? 'yellow';
+      include 'inc/data.inc.php';
 
       getTable((int) $cols, (int) $rows, $color);
       ?>
