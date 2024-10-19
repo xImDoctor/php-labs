@@ -36,7 +36,6 @@ function checkPasswordDifficulty(string $password): bool
 <body>
 
     <?php
-    declare(strict_types=1);
     /*
        ЗАДАНИЕ 2
        - Используя строковые функции, удалите пробельные символы в начале и конце переменной $login, а также сделайте все символы строчными (малыми)

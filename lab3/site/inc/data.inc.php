@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $cols = $_GET['cols'] ?? 5;
 $rows = $_GET['rows'] ?? 5;
