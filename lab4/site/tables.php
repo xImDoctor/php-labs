@@ -10,7 +10,7 @@ $color = ($color) ? $color : '#ffff00';
 ?>
 
 <!-- Область основного контента -->
-<form action=''>
+<form action='' method="POST">
   <label>Количество колонок: </label>
   <br>
   <input name='cols' type='text' value=''>
@@ -36,7 +36,7 @@ $color = ($color) ? $color : '#ffff00';
 
 <table border='1' width='200'>
   <?php
-  getTable((int) $cols, (int) $rows, $color);
+  getTable($cols, $rows, $color);
   ?>
 </table>
 <!-- Таблица -->
