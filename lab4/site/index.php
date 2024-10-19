@@ -56,8 +56,8 @@ switch ($id) {
       case 'contact':
         include 'contact.php';
         break;
-      case 'table':
-        include 'table.php';
+      case 'tables':
+        include 'tables.php';
         break;
       case 'calc':
         include 'calc.php';

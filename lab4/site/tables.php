@@ -1,3 +1,14 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $cols = abs((int) $_POST['cols']);
+  $rows = abs((int) $_POST['rows']);
+  $color = trim(strip_tags($_POST['color']));
+}
+$cols = ($cols) ? $cols : 10;
+$rows = ($rows) ? $rows : 10;
+$color = ($color) ? $color : '#ffff00';
+?>
+
 <!-- Область основного контента -->
 <form action=''>
   <label>Количество колонок: </label>
