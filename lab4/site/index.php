@@ -2,8 +2,9 @@
 include 'inc/lib.inc.php';
 include 'inc/data.inc.php';
 
-
-$welcome = now();
+// установка приветствия
+$welcome = "Добрый день";
+setWelcome($welcome);
 
 $title = 'Сайт нашей школы';
 $header = "$welcome, Гость!";
