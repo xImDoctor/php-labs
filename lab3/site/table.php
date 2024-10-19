@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<?php
+      include 'inc/lib.inc.php';
+      include 'inc/data.inc.php';
+?>
+
 <body>
   <header>
     <!-- Верхняя часть страницы -->
@@ -47,9 +52,6 @@
 
     <table border='1' width='200'>
       <?php
-      include 'inc/lib.inc.php';
-      include 'inc/data.inc.php';
-
       getTable((int) $cols, (int) $rows, $color);
       ?>
     </table>
@@ -59,13 +61,9 @@
   <nav>
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
-    <ul>
-      <li><a href='index.php'>Домой</a></li>
-      <li><a href='about.php'>О нас</a></li>
-      <li><a href='contact.php'>Контакты</a></li>
-      <li><a href='table.php'>Таблица умножения</a></li>
-      <li><a href='calc.php'>Калькулятор</a></li>
-    </ul>
+    <?php
+    getMenu($menu);
+    ?>
     <!-- Меню -->
   </nav>
   <footer>

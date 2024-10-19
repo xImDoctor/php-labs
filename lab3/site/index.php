@@ -35,6 +35,11 @@
   - Сохраните файл index.php
   - Посмотрите результат в браузере
   */
+
+
+include 'inc/lib.inc.php';
+include 'inc/data.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -85,7 +90,6 @@
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
     <?php
-    include 'inc/lib.inc.php';
 
     getMenu($menu);
     ?>
