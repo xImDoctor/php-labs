@@ -10,7 +10,7 @@ $color = ($color) ? $color : '#ffff00';
 ?>
 
 <!-- Область основного контента -->
-<form action='' method="POST">
+<form action='<?=$_SERVER['REQUEST_URI']?>' method="POST">
   <label>Количество колонок: </label>
   <br>
   <input name='cols' type='text' value=''>
