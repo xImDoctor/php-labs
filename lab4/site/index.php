@@ -69,7 +69,7 @@ switch ($id) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сайт нашей школы</title>
+  <title><?= $title ?></title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -80,7 +80,7 @@ switch ($id) {
 
   <section>
     <!-- Заголовок -->
-    <h1>Добро пожаловать на наш сайт!</h1>
+    <h1><?= $header ?></h1>
     <!-- Область основного контента -->
     <?php include 'inc/index.inc.php'; ?>
     <!-- Область основного контента -->
