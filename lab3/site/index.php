@@ -65,9 +65,7 @@ include 'inc/data.inc.php';
   </section>
   <nav>
     <!-- Навигация -->
-    <h2>Навигация по сайту</h2>
-    <!-- Меню -->
-    <?php getMenu($menu); ?>
+    <?php include 'inc/nav.inc.php'; ?>
   </nav>
   <footer>
     <?php include 'inc/footer.inc.php'; ?>
