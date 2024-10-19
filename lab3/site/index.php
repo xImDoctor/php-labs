@@ -71,7 +71,7 @@ include 'inc/data.inc.php';
   </nav>
   <footer>
     <!-- Нижняя часть страницы -->
-    <?php include 'inc/footer.inc.php'; ?>
+    <?php include 'inc/bottom.inc.php'; ?>
     <!-- Нижняя часть страницы -->
   </footer>
 </body>
