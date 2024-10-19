@@ -7,7 +7,42 @@
 - В случае деления, проверьте, делитель на равенство с нулем (на ноль делить нельзя)
 - Сохраните полученный результат вычисления в переменной
 */
+
+$result = null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Фильтрация и получение значений
+    $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
+    $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
+    $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_STRING);
+
+    // Проверка корректности введённых данных
+    if ($num1 === false || $num2 === false)
+        $result = 'Ошибка: введите корректные числа!';
+    else {
+        // Выполнение операции в зависимости от оператора
+        switch ($operator) {
+            case '+':
+                $result = $num1 + $num2;
+                break;
+            case '-':
+                $result = $num1 - $num2;
+                break;
+            case '*':
+                $result = $num1 * $num2;
+                break;
+            case '/':
+                if ($num2 == 0)
+                    $result = 'Ошибка: деление на ноль невозможно!';
+                else $result = $num1 / $num2;
+                break;
+            default:
+                $result = 'Ошибка: некорректный оператор!';
+        }
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -27,6 +62,9 @@
     ЗАДАНИЕ 2
     - Если результат существует, выведите его
     */
+    if ($result !== null)
+        echo "<h2>Результат: $result</h2>";
+    
     ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
