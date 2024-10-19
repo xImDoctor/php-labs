@@ -56,9 +56,7 @@ include 'inc/data.inc.php';
   <header>
     <!-- Верхняя часть страницы -->
 
-    <?php
-    include 'inc/header.inc.php';
-    ?>
+    <?php include 'inc/header.inc.php'; ?>
 
     <!-- Верхняя часть страницы -->
   </header>
@@ -69,9 +67,7 @@ include 'inc/data.inc.php';
     <!-- Заголовок -->
     <!-- Область основного контента -->
 
-    <?php
-    include 'inc/index.inc.php';
-    ?>
+    <?php include 'inc/index.inc.php'; ?>
 
     <!-- Область основного контента -->
   </section>
@@ -79,18 +75,13 @@ include 'inc/data.inc.php';
     <!-- Навигация -->
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
-    <?php
-
-    getMenu($menu);
-    ?>
+    <?php getMenu($menu); ?>
     <!-- Меню -->
     <!-- Навигация -->
   </nav>
   <footer>
     <!-- Нижняя часть страницы -->
-    <?php
-    include 'inc/footer.inc.php';
-    ?>
+    <?php include 'inc/footer.inc.php'; ?>
     <!-- Нижняя часть страницы -->
   </footer>
 </body>
