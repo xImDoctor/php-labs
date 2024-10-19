@@ -7,13 +7,9 @@ declare(strict_types=1);
  * @param int $cols - количество столбцов таблицы,
  * @param int $rows - количество строк таблицы,
  * @param string $color - цвет заголовков (первого столбца и первой строки),
- * @return int  - возвращает количество вызывов функции.
  */
-function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
+function drawTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): void
 {
-    //подсчёт количества вызовов
-    static $count = 0;
-    ++$count;
 
     //echo '<table>';
 
@@ -34,7 +30,6 @@ function getTable(int $cols = 10, int $rows = 10, string $color = 'yellow'): int
 
     //echo '</table>';
 
-    return $count;
 }
 
 

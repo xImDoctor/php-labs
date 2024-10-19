@@ -9,6 +9,9 @@
 */
 
 $result = null;
+$num1 = '';
+$num2 = '';
+$operator = '+';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Фильтрация и получение значений
@@ -17,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_STRING);
 
     // Проверка корректности введённых данных
-    if ($num1 === false || $num2 === false)
+    if ($num1 === false || $num2 === false) {
         $result = 'Ошибка: введите корректные числа!';
-    else {
+    } else {
         // Выполнение операции в зависимости от оператора
         switch ($operator) {
             case '+':
@@ -32,9 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $num1 * $num2;
                 break;
             case '/':
-                if ($num2 == 0)
+                if ($num2 == 0) {
                     $result = 'Ошибка: деление на ноль невозможно!';
-                else $result = $num1 / $num2;
+                } else {
+                    $result = $num1 / $num2;
+                }
                 break;
             default:
                 $result = 'Ошибка: некорректный оператор!';
@@ -62,28 +67,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ЗАДАНИЕ 2
     - Если результат существует, выведите его
     */
-    if ($result !== null)
+    if ($result !== null) {
         echo "<h2>Результат: $result</h2>";
-    
+    }
     ?>
 
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="" method="post">
 
         <p><label for="num1">Число 1</label><br>
-            <input type="text" name="num1" id="num1" required>
+            <input type="text" name="num1" id="num1" value="<?= htmlspecialchars($num1) ?>" required>
         </p>
 
         <p><label for="operator">Оператор</label><br>
             <select name="operator" id="operator">
-                <option value="+" selected>+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
+                <option value="+" <?= $operator == '+' ? 'selected' : '' ?>>+</option>
+                <option value="-" <?= $operator == '-' ? 'selected' : '' ?>>-</option>
+                <option value="*" <?= $operator == '*' ? 'selected' : '' ?>>*</option>
+                <option value="/" <?= $operator == '/' ? 'selected' : '' ?>>/</option>
             </select>
         </p>
 
         <p><label for="num2">Число 2</label><br>
-            <input type="text" name="num2" id="num2" required>
+            <input type="text" name="num2" id="num2" value="<?= htmlspecialchars($num2) ?>" required>
         </p>
 
         <button type="submit">Считать!</button>

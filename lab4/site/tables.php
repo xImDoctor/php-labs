@@ -36,7 +36,7 @@ $color = ($color) ? $color : '#ffff00';
 
 <table border='1' width='200'>
   <?php
-  getTable($cols, $rows, $color);
+  drawTable($cols, $rows, $color);
   ?>
 </table>
 <!-- Таблица -->
