@@ -66,6 +66,7 @@ include 'inc/data.inc.php';
   <nav>
     <!-- Навигация -->
     <?php include 'inc/nav.inc.php'; ?>
+    <!-- Навигация -->
   </nav>
   <footer>
     <?php include 'inc/footer.inc.php'; ?>
