@@ -1,3 +1,7 @@
+<?php
+declare(strict_types=1);
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -19,6 +23,36 @@
         - Если загружен файл типа "image/jpeg", то с помощью функции move_uploaded_file() переместите его в каталог upload. В качестве имени файла используйте его MD5-хеш.
 
         */
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['fupload'])) {
+            $file = $_FILES['fupload'];
+
+            // инфа о файле
+            echo "Имя файла: " . htmlspecialchars($file['name']) . "<br>";
+            echo "Размер файла: " . $file['size'] . " байт<br>";
+            echo "Имя временного файла: " . htmlspecialchars($file['tmp_name']) . "<br>";
+            echo "Тип файла: " . htmlspecialchars($file['type']) . "<br>";
+            echo "Код ошибки: " . $file['error'] . "<br>";
+
+            // проверка имени файла
+            if (mime_content_type($file['tmp_name']) === 'image/jpeg') {
+                // путь к директории загрузок
+                $uploadDir = 'upload/';
+                if (!is_dir($uploadDir))
+                    mkdir($uploadDir, 0777, true);
+
+                // MD5-хеш для имени файла
+                $newFileName = md5_file($file['tmp_name']) . '.jpg';
+                $uploadFilePath = $uploadDir . $newFileName;
+
+                // Перемещаем файл в upload
+                if (move_uploaded_file($file['tmp_name'], $uploadFilePath))
+                    echo "Файл успешно загружен в директорию: " . htmlspecialchars($uploadFilePath);
+                else
+                    echo "Ошибка при перемещении файла.";
+            } else
+                echo "Неверный тип файла. Загрузите изображение в формате JPEG.";
+        }
         ?>
 
     </div>
