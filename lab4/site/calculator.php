@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Фильтрация и получение значений
     $num1 = filter_input(INPUT_POST, 'num1', FILTER_VALIDATE_FLOAT);
     $num2 = filter_input(INPUT_POST, 'num2', FILTER_VALIDATE_FLOAT);
-    $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_STRING);
+    $operator = filter_input(INPUT_POST, 'operator', FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Проверка корректности введённых данных
     if ($num1 === false || $num2 === false)
