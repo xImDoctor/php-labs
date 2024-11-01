@@ -1,9 +1,15 @@
 <?php
+
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $cols = abs((int) $_POST['cols']);
   $rows = abs((int) $_POST['rows']);
   $color = trim(strip_tags($_POST['color']));
-} 
+
+  $_SESSION['color'] = $color; // Сохранение выбранного цвета в сессии
+} else
+  $color = $_SESSION['color'] ?? '#ffff00'; //цвет из сессии
 
 ?>
 
@@ -19,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <br>
   <label>Цвет: </label>
   <br>
-  <input name='color' type='color' value='<?= $color ?>' list="listColors">
+  <input name='color' type='color' value='<?= htmlspecialchars($color) ?>' list="listColors">
 
   <br>
   <br>
