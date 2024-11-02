@@ -24,7 +24,7 @@
     <h3>Адрес</h3>
     <address>123456 Москва, Малый Американский переулок 21</address>
     <h3>Задайте вопрос</h3>
-    <form action='' method='post'>
+    <form method='post'>
       <label>Тема письма: </label>
       <br>
       <input name='subject' type='text' size="50">
