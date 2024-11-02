@@ -57,7 +57,7 @@ if ($result !== null)
     echo "<h2>Результат: $result</h2>";
 ?>
 
-<form action="" method="post">
+<form method="post">
 
     <p><label for="num1">Число 1</label><br>
         <input type="text" name="num1" id="num1" value="<?= htmlspecialchars($num1) ?>" required>
