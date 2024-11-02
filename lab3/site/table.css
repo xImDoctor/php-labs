@@ -1,0 +1,16 @@
+
+.mult-table {
+    width: 200px;
+    border-collapse: collapse;
+  }
+  
+  .mult-table td, .mult-table th {
+    border: 1px solid #000000;
+    padding: 8px;
+  }
+  
+  .mult-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
