@@ -27,31 +27,40 @@ declare(strict_types=1);
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['fupload'])) {
             $file = $_FILES['fupload'];
 
-            // инфа о файле
-            echo "Имя файла: " . htmlspecialchars($file['name']) . "<br>";
-            echo "Размер файла: " . $file['size'] . " байт<br>";
-            echo "Имя временного файла: " . htmlspecialchars($file['tmp_name']) . "<br>";
-            echo "Тип файла: " . htmlspecialchars($file['type']) . "<br>";
-            echo "Код ошибки: " . $file['error'] . "<br>";
+            // Вывод информации о файле
+            echo 'Имя файла: ' . htmlspecialchars($file['name']) . "<br>";
+            echo 'Размер файла: ' . $file['size'] . " байт<br>";
+            echo 'Имя временного файла: ' . htmlspecialchars($file['tmp_name']) . "<br>";
+            echo 'Тип файла: ' . htmlspecialchars($file['type']) . "<br>";
+            echo 'Код ошибки: ' . $file['error'] . "<br>";
 
-            // проверка имени файла
-            if (mime_content_type($file['tmp_name']) === 'image/jpeg') {
-                // путь к директории загрузок
-                $uploadDir = 'upload/';
-                if (!is_dir($uploadDir))
-                    mkdir($uploadDir, 0777, true);
+            // Проверка успешной загрузки
+            if ($file['error'] === UPLOAD_ERR_OK) {
+                $tempFilePath = $file['tmp_name'];
 
-                // MD5-хеш для имени файла
-                $newFileName = md5_file($file['tmp_name']) . '.jpg';
-                $uploadFilePath = $uploadDir . $newFileName;
+                // Проверка типа файла
+                if (mime_content_type($tempFilePath) === 'image/jpeg') {
+                    // Путь к директории загрузок
+                    $uploadDir = 'upload/';
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0777, true);
+                    }
 
-                // Перемещаем файл в upload
-                if (move_uploaded_file($file['tmp_name'], $uploadFilePath))
-                    echo "Файл успешно загружен в директорию: " . htmlspecialchars($uploadFilePath);
-                else
-                    echo "Ошибка при перемещении файла.";
+                    // Создание MD5-хеша для имени файла
+                    $newFileName = md5_file($tempFilePath) . '.jpg';
+                    $uploadFilePath = $uploadDir . $newFileName;
+
+                    // Перемещение файла в upload
+                    if (move_uploaded_file($tempFilePath, $uploadFilePath)) {
+                        echo 'Файл успешно загружен в директорию: ' . htmlspecialchars($uploadFilePath);
+                    } else
+                        echo 'Ошибка при перемещении файла.';
+                } else
+                    echo 'Неверный тип файла. Загрузите изображение в формате JPEG.';
+
             } else
-                echo "Неверный тип файла. Загрузите изображение в формате JPEG.";
+                echo 'Ошибка загрузки файла. Код ошибки: ' . $file['error'];
+
         }
         ?>
 
