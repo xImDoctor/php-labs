@@ -64,7 +64,8 @@ $hour = getdate()['hours'];
         IntlDateFormatter::FULL,
         IntlDateFormatter::FULL,
         'Europe/Moscow',
-        IntlDateFormatter::GREGORIAN
+        IntlDateFormatter::GREGORIAN,
+        "Сегодня d MMMM Y года, EEEE H:mm:ss"
     );
 
     $formattedDate = datefmt_format($fmt, $now);

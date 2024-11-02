@@ -3,9 +3,19 @@ declare(strict_types=1);
 
 $constants = get_defined_constants();
 
-echo '<table border="1" cellpadding="5">';
+echo '<!DOCTYPE html>';
+echo '<html lang="ru">';
+echo '<head>';
+echo '<title>Константы</title>';
+echo '<link rel="stylesheet" href="constants.css">';
+echo '</head>';
+
+echo '<body>';
+echo '<table>';
 echo '<tr><th>Имя константы</th><th>Значение</th></tr>';
 foreach ($constants as $name => $value)
     echo "<tr><td>{$name}</td><td>{$value}</td></tr>";
 
 echo '</table>';
+echo '</body>';
+echo '</html>';

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Таблица умножения</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="table.css">
 </head>
 
 <?php
@@ -26,7 +27,7 @@
     <h1>Таблица умножения</h1>
     <!-- Заголовок -->
     <!-- Область основного контента -->
-    <form action=''>
+    <form>
       <label>Количество колонок: </label>
       <br>
       <input name='cols' type='text' value=''>
@@ -50,7 +51,7 @@
     <br>
     <!-- Таблица -->
 
-    <table border='1' width='200'>
+    <table class="mult-table">
       <?php
       getTable((int) $cols, (int) $rows, $color);
       ?>
