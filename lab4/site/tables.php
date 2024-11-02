@@ -25,8 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <br>
   <label>Цвет: </label>
   <br>
-  <input name='color' type='color' value='<?= htmlspecialchars($color) ?>'>
-
+  <input name='color' type='color' value='<?= htmlspecialchars($color) ?>' list="listColors">
+  <datalist id="listColors">
+    <option>#ff0000</option>/>
+    <option>#00ff00</option>
+    <option>#0000ff</option>
+  </datalist>
   <br>
   <br>
   <input type='submit' value='Создать'>
