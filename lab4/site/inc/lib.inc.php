@@ -45,7 +45,7 @@ function getMenu(array $menu, bool $vertical = true): void
 
     echo "<ul class='$menuClasses'>";
     foreach ($menu as $item)
-        echo "<li><a href={$item['href']}>{$item['link']}</a></li>";
+        echo "<li><a href=\"{$item['href']}\">{$item['link']}</a></li>";
 
     echo '</ul>';
 

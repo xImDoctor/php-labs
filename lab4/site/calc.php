@@ -1,5 +1,5 @@
 <!-- Область основного контента -->
-<form action=''>
+<form>
   <label>Число 1:</label>
   <br>
   <input name='num1' type='text'>
