@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 $constants = get_defined_constants();
 
+echo '<!DOCTYPE html>';
+echo '<html lang="ru">';
 echo '<head>';
+echo '<title>Константы</title>';
 echo '<link rel="stylesheet" href="constants.css">';
 echo '</head>';
 
