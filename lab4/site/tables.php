@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <br>
 <!-- Таблица -->
 
-<table border='1' width='200'>
+<table class="mult-table">
   <?php
   drawTable($cols, $rows, $color);
   ?>
