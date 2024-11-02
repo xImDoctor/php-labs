@@ -19,7 +19,3 @@ foreach ($constants as $name => $value)
 echo '</table>';
 echo '</body>';
 echo '</html>';
-
-//inline стили убрать
-//формат даты добавить
-//пустой action убрать
