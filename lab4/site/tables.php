@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <br>
   <label>Цвет: </label>
   <br>
-  <input name='color' type='color' value='<?= htmlspecialchars($color) ?>' list="listColors">
+  <input name='color' type='color' value='<?= htmlspecialchars($color) ?>'>
 
   <br>
   <br>
