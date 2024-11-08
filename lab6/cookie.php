@@ -15,7 +15,6 @@ declare(strict_types=1);
 
 
 $visits = 1;
-$countMessage = "";
 if (isset($_COOKIE['visits']))
   $visits = (int) $_COOKIE['visits'] + 1;
 
@@ -23,7 +22,7 @@ if (isset($_COOKIE['visits']))
 $visitMessage = 'Это ваш первый визит на сайт.';
 if (isset($_COOKIE['visitMessage'])) {
   $visitMessage = htmlspecialchars(trim($_COOKIE['visitMessage']));
-  $countMessage = "<p>Последнее посещение: $visitMessage</p>";
+  $visitMessage = "<p>Последнее посещение: $visitMessage</p>";
 }
 
 setcookie('visits', (string) $visits, time() + 86400);
@@ -45,7 +44,7 @@ setcookie('visitMessage', date("Y-m-d H:i:s"), time() + 86400); // Время х
 
   <?php
   echo "<p>Количество посещений: $visits</p>";
-  echo $countMessage;
+  echo $visitMessage;
   ?>
 
 </body>
