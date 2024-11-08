@@ -15,37 +15,38 @@ declare(strict_types=1);
 
 
 $visits = 1;
+$countMessage = "";
 if (isset($_COOKIE['visits']))
-    $visits = (int) $_COOKIE['visits'] + 1;
+  $visits = (int) $_COOKIE['visits'] + 1;
 
 
 $visitMessage = 'Это ваш первый визит на сайт.';
-if (isset($_COOKIE['visitMessage']))
-    $visitMessage = htmlspecialchars(trim($_COOKIE['visitMessage']));
+if (isset($_COOKIE['visitMessage'])) {
+  $visitMessage = htmlspecialchars(trim($_COOKIE['visitMessage']));
+  $countMessage = "<p>Последнее посещение: $lastVisit</p>";
+}
 
-
-
-setcookie('visits', $visits, time() + 86400);
+setcookie('visits', (string) $visits, time() + 86400);
 setcookie('visitMessage', date("Y-m-d H:i:s"), time() + 86400); // Время хранения куки — 1 сутки (86400 минут)
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Последний визит</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Последний визит</title>
 </head>
 
 <body>
 
-    <h1>Последний визит</h1>
+  <h1>Последний визит</h1>
 
-    <?php
-    echo "<p>Количество посещений: $visits</p>";
-    echo "<p>Последнее посещение: $lastVisit</p>"
-        ?>
+  <?php
+  echo "<p>Количество посещений: $visits</p>";
+  echo $countMessage;
+  ?>
 
 </body>
 
