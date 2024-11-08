@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 // Код для всех страниц - сохранение информации о посещенных страницах
-
-
 /*
 ЗАДАНИЕ 1
 - Создайте в сессии либо 
@@ -10,9 +8,6 @@ declare(strict_types=1);
 	- строку с уникальным разделителем и последовательно её дополняйте
 
 */
-
-ini_set("session.use_only_cookies", "0");
-ini_set("session.use_trans_sid", "1");
 
 if (!isset($_SESSION['visitedPages']))
     $_SESSION['visitedPages'] = [];
