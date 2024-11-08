@@ -10,14 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $to = "andrew@imdoc.ru";
   $from = "admin@center.ogu";
   $headers = "From: $from\r\n" .
-             "Reply-To: $from\r\n" .
-             "Content-Type: text/plain; charset=utf-8";
+    "Reply-To: $from\r\n" .
+    "Content-Type: text/plain; charset=utf-8";
 
 
   if (mail($to, $subject, $body, $headers))
-      echo "<p>Сообщение успешно отправлено!</p>";
+    $message = "<p>Сообщение успешно отправлено!</p>";
   else
-      echo "<p>Произошла ошибка при отправке сообщения.</p>";
+    $message = "<p>Произошла ошибка при отправке сообщения.</p>";
 
 }
 ?>
@@ -53,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <br>
       <input type='submit' value='Отправить'>
     </form>
+
+    <? echo $message ?>
     <!-- Область основного контента -->
   </section>
 
