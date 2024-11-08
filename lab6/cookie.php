@@ -23,7 +23,7 @@ if (isset($_COOKIE['visits']))
 $visitMessage = 'Это ваш первый визит на сайт.';
 if (isset($_COOKIE['visitMessage'])) {
   $visitMessage = htmlspecialchars(trim($_COOKIE['visitMessage']));
-  $countMessage = "<p>Последнее посещение: $lastVisit</p>";
+  $countMessage = "<p>Последнее посещение: $visitMessage</p>";
 }
 
 setcookie('visits', (string) $visits, time() + 86400);
