@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
-  $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_STRING);
+  $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
   $to = "andrew@imdoc.ru";
@@ -13,11 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     "Reply-To: $from\r\n" .
     "Content-Type: text/plain; charset=utf-8";
 
-
+  $message = "<p>Произошла ошибка при отправке сообщения.</p>";
   if (mail($to, $subject, $body, $headers))
     $message = "<p>Сообщение успешно отправлено!</p>";
-  else
-    $message = "<p>Произошла ошибка при отправке сообщения.</p>";
+
 
 }
 ?>
