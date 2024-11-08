@@ -1,3 +1,27 @@
+<?php
+declare(strict_types=1);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING);
+  $body = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_STRING);
+
+
+  $to = "andrew@imdoc.ru";
+  $from = "admin@center.ogu";
+  $headers = "From: $from\r\n" .
+             "Reply-To: $from\r\n" .
+             "Content-Type: text/plain; charset=utf-8";
+
+
+  if (mail($to, $subject, $body, $headers))
+      echo "<p>Сообщение успешно отправлено!</p>";
+  else
+      echo "<p>Произошла ошибка при отправке сообщения.</p>";
+
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
