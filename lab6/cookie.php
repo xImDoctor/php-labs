@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /*
 ЗАДАНИЕ 1
 - Инициализируйте переменную для подсчета количества посещений
@@ -11,6 +12,21 @@
 - С помощью функции setcookie() установите соответствующие куки.  Задайте время хранения куки 1 сутки. 
   Для задания времени последнего посещения страницы используйте функцию date()
 */
+
+
+$visits = 1;
+if (isset($_COOKIE['visits']))
+    $visits = (int) $_COOKIE['visits'] + 1;
+
+
+$visitMessage = 'Это ваш первый визит на сайт.';
+if (isset($_COOKIE['visitMessage']))
+    $visitMessage = htmlspecialchars(trim($_COOKIE['visitMessage']));
+
+
+
+setcookie('visits', $visits, time() + 86400);
+setcookie('visitMessage', date("Y-m-d H:i:s"), time() + 86400); // Время хранения куки — 1 сутки (86400 минут)
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,11 +43,9 @@
     <h1>Последний визит</h1>
 
     <?php
-    /*
-    ЗАДАНИЕ 2
-    - Выводите информацию о количестве посещений и дате последнего посещения
-    */
-    ?>
+    echo "<p>Количество посещений: $visits</p>";
+    echo "<p>Последнее посещение: $lastVisit</p>"
+        ?>
 
 </body>
 
