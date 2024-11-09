@@ -29,7 +29,7 @@ class SuperUser extends User
      */
     public function showInfo(): string  
     {
-        return "<div class='super-user-info'>
+        return "<div class=\"super-user-info\">
                     <h3>Super User Info</h3>
                     <p><strong>Name:</strong> {$this->name}</p>
                     <p><strong>Login:</strong> {$this->login}</p>

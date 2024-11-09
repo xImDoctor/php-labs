@@ -28,7 +28,7 @@ class User
      * @return string - Возвращает строкой HTML-блок с информацией о пользователе
      */
     public function showInfo(): string   {
-        return "<div class='user-info'>
+        return "<div class=\"user-info\">
                     <h3>User Info</h3>
                     <p><strong>Name:</strong> {$this->name}</p>
                     <p><strong>Login:</strong> {$this->login}</p>

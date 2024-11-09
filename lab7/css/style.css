@@ -11,5 +11,5 @@ body {
 
 .user-info h3,
 .super-user-info h3 {
-    color: #333;
+    color: red;
 }
