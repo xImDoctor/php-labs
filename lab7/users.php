@@ -2,16 +2,15 @@
 use MyProject\Classes\User;
 use MyProject\Classes\SuperUser;
 
-spl_autoload_register(function ($class) {
+spl_autoload_register(function ($class): void {
     $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
-    if (file_exists($file)) {
+    if (file_exists($file))
         require $file;
-    }
 });
 
 // HTML-заголовок и стили
 echo "<!DOCTYPE html>
-<html lang='en'>
+<html lang='ru'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -21,7 +20,6 @@ echo "<!DOCTYPE html>
 </head>
 <body>";
 
-// Создание объектов и вывод информации
 $user1 = new User("Вова", "vladimir123", "password1");
 $user2 = new User("Андрей", "adreww", "password2");
 $user3 = new User("Сергей", "serj228", "password3");
