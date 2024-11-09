@@ -33,4 +33,9 @@ echo $user3->showInfo();
 $user = new SuperUser("Admin", "mega_admin", "password4", "administrator");
 echo $user->showInfo();
 
+unset($user1);
+unset($user2);
+unset($user3);
+unset($user);
+
 echo "</body></html>";
