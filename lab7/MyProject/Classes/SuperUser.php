@@ -1,14 +1,11 @@
 <?php
+declare(strict_types=1);
 namespace MyProject\Classes;
 
 require_once 'User.php';
 
 class SuperUser extends User
 {
-    /**
-     * Роль суперпользователя.
-     * @var string
-     */
     public $role;
 
     /**
@@ -26,13 +23,17 @@ class SuperUser extends User
     }
 
     /**
-     * Выводит информацию о суперпользователе, включая его роль.
+     * Возвращает HTML с информацией о суперпользователе.
      *
-     * @return void
+     * @return string
      */
-    public function showInfo()
+    public function showInfo(): string  
     {
-        parent::showInfo();
-        echo "Role: $this->role\n";
+        return "<div class='super-user-info'>
+                    <h3>Super User Info</h3>
+                    <p><strong>Name:</strong> {$this->name}</p>
+                    <p><strong>Login:</strong> {$this->login}</p>
+                    <p><strong>Role:</strong> {$this->role}</p>
+                </div>";
     }
 }

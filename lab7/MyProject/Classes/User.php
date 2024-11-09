@@ -3,22 +3,9 @@ namespace MyProject\Classes;
 
 class User
 {
-    /**
-     * Имя пользователя.
-     * @var string
-     */
+
     public $name;
-
-    /**
-     * Логин пользователя.
-     * @var string
-     */
     public $login;
-
-    /**
-     * Пароль пользователя.
-     * @var string
-     */
     private $password;
 
     /**
@@ -38,12 +25,15 @@ class User
     /**
      * Выводит информацию о пользователе.
      *
-     * @return void
+     * @return string - Возвращает строкой HTML-блок с информацией о пользователе
      */
-    public function showInfo()
-    {
-        echo "User Name: $this->name, Login: $this->login\n";
-    }
+    public function showInfo(): string   {
+        return "<div class='user-info'>
+                    <h3>User Info</h3>
+                    <p><strong>Name:</strong> {$this->name}</p>
+                    <p><strong>Login:</strong> {$this->login}</p>
+                </div>";
+    }   
 
     /**
      * Деструктор класса User.
@@ -51,6 +41,6 @@ class User
      */
     public function __destruct()
     {
-        echo "Пользователь $this->login удален.\n";
+        echo "<p>Пользователь {$this->login} удален.</p>";
     }
 }
