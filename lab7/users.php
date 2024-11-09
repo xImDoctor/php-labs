@@ -2,12 +2,6 @@
 use MyProject\Classes\User;
 use MyProject\Classes\SuperUser;
 
-/**
- * Автозагрузка классов, находящихся в пространстве имен MyProject\Classes.
- *
- * @param string $class Полное имя класса, включая пространство имен.
- * @return void
- */
 spl_autoload_register(function ($class) {
     $file = __DIR__ . '/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($file)) {
@@ -15,16 +9,28 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Создание объектов класса User
-$user1 = new User("Alice", "alice123", "password1");
-$user2 = new User("Bob", "bob123", "password2");
-$user3 = new User("Charlie", "charlie123", "password3");
+// HTML-заголовок и стили
+echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>User Info</title>
+    <link rel=\"stylesheet\" href=\"style.css\">
+    
+</head>
+<body>";
 
-// Вызов метода showInfo для каждого пользователя
-$user1->showInfo();
-$user2->showInfo();
-$user3->showInfo();
+// Создание объектов и вывод информации
+$user1 = new User("Вова", "vladimir123", "password1");
+$user2 = new User("Андрей", "adreww", "password2");
+$user3 = new User("Сергей", "serj228", "password3");
 
-// Создание и вызов метода showInfo для объекта класса SuperUser
-$user = new SuperUser("Admin", "admin123", "password4", "administrator");
-$user->showInfo();
+echo $user1->showInfo();
+echo $user2->showInfo();
+echo $user3->showInfo();
+
+$user = new SuperUser("Admin", "mega_admin", "password4", "administrator");
+echo $user->showInfo();
+
+echo "</body></html>";
