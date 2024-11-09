@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['fname'], $_POST['lname
 
   <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
 
-    Имя: <input type="text" name="fname"><br>
-    Фамилия: <input type="text" name="lname"><br>
+    Имя: <input type="text" name="fname" required><br>
+    Фамилия: <input type="text" name="lname" required><br>
 
     <br>
 
