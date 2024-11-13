@@ -20,6 +20,39 @@ $host = 'localhost';
 $connection = mysqli_connect($host, $user, $password, $db);
 
 
+if (!$connection)
+  die("Ошибка подключения: " . mysqli_connect_error());
+
+mysqli_set_charset($connection, "utf8");
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['name'] ?? '')));
+  $email = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['email'] ?? '')));
+  $msg = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['msg'] ?? '')));
+
+  // msgs insertion
+  $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
+
+  if (mysqli_query($connection, $query)) {
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+  } else 
+    echo "Ошибка: " . mysqli_error($connection);
+}
+
+// del check
+if (isset($_GET['delete_id'])) {
+
+  $delete_id = (int) $_GET['delete_id'];
+  $delquery = "DELETE FROM msgs WHERE id = $delete_id";
+  if (mysqli_query($connection, $delquery)) {
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+
+  } else 
+    echo "Ошибка удаления: " . mysqli_error($connection);
+}
+
 /*
 ЗАДАНИЕ 3
 - Проверьте, был ли запрос методом GET на удаление записи
@@ -90,7 +123,7 @@ $connection = mysqli_connect($host, $user, $password, $db);
   } else
     echo "<p>Ошибка при выборке данных: " . mysqli_error($connection) . "</p>";
 
-    mysqli_close($connection);
+  mysqli_close($connection);
   ?>
 
 </body>
