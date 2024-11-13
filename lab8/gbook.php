@@ -88,7 +88,7 @@ $connection = mysqli_connect($host, $user, $password, $db);
 
     }
   } else
-    echo "Ошибка при выборке данных: " . mysqli_error($connection);
+    echo "<p>Ошибка при выборке данных: " . mysqli_error($connection) . "</p>";
 
     mysqli_close($connection);
   ?>
