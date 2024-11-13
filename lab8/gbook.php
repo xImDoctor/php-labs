@@ -83,7 +83,7 @@ $connection = mysqli_connect($host, $user, $password, $db);
 
       echo "<div>";
       echo "<p><strong>{$row['name']}</strong> ({$row['email']})</p>";
-      echo "<p>{$row['message']}</p>";
+      echo "<p>{$row['msg']}</p>";
       echo "<a href='?delete_id={$row['id']}'>Удалить</a></div><hr>";
 
     }
