@@ -13,7 +13,7 @@ declare(strict_types=1);
 */
 
 require_once 'config.php'; //db data
-$connection = mysqli_connect($host, $user, $password, $db);
+$connection = mysqli_connect(HOST, USER, PASSWORD, DB);
 
 
 if (!$connection)
