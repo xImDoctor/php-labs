@@ -12,11 +12,7 @@ declare(strict_types=1);
   чтобы избавиться от информации, переданной через форму
 */
 
-$db = 'f1038589_login_db';
-$user = 'f1038589_login_db';
-$password = 'admin4ik123';
-$host = 'localhost';
-
+require_once 'config.php'; //db data
 $connection = mysqli_connect($host, $user, $password, $db);
 
 
