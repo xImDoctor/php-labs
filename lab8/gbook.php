@@ -75,11 +75,11 @@ if (isset($_GET['delete_id'])) {
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
     Ваше имя:<br>
-    <input type="text" name="name"><br>
+    <input type="text" name="name" required><br>
     Ваш E-mail:<br>
-    <input type="email" name="email"><br>
+    <input type="email" name="email" required><br>
     Сообщение:<br>
-    <textarea name="msg" cols="50" rows="5"></textarea><br>
+    <textarea name="msg" cols="50" rows="5" required></textarea><br>
     <br>
     <input type="submit" value="Добавить!">
 
